@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}NONDA | {{data.DealerName}}{% endblock %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+    <img class="rounded" src="{{MEDIA_ROOT}}{{data.DealerLogo.url}}" />
+    <div class="container">
+        <h1 class="display-4">{{data.DealerName}}</h1>
+        <p class="lead">{{data.DealerDesc}}</p>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{%endblock%}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.username.errors }}
+            <label for="{{form.username.id_for_label}}" class="form-label">Username</label><br>
+            {{ form.username}}
+            <div id="userHelp" class="form-text">Please input your username</div>
+        </div>
+        <div class="mb-3">
+            {{ form.password1.errors }}
+            <label for="{{form.password1.id_for_label}}" class="form-label">Password</label><br>
+            {{ form.password1 }}
+            <div id="passwordHelp" class="form-text">Password must be al least 8 character.</div>
+        </div>
+        <p>Doesn't have an account? <a href="/register?next={{ request.path }}" class="list-decoration-none">Sign Up</a></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
