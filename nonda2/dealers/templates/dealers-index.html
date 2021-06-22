@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% if user.is_delaer %}
+    {% block dealer_name %}
+    | {{dealer}}
+    {% endblock dealer_name %}
+{% endif %}
+
+{% block nav_list %}
+<ul class="list-inline nav d-flex justify-content-end">
+    <li class="nav-item">
+    <a class="text-white nav-link" href="/dealers/me/brands/">Buy Vehicles</a>
+    </li>
+    <li class="nav-item">
+    <a class="text-white nav-link" href="/dealers/me/vehicle/">Our Vehicles</a>
+    </li>
+    <li class="nav-item">
+    <a class="text-white nav-link" href="/dealers/me/report/">Report</a>
+    </li>
+</ul>
+{% endblock nav_list %}
+
+{% block content %}
+    {% if user.is_dealer %}
+    {% block dashboard %}{% endblock dashboard %}
+    {% else %}
+    You are not a dealer admin.
+    {% endif %}
+{% endblock content %}

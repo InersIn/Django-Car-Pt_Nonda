@@ -1,0 +1,29 @@
+{% extends 'accounts-index.html' %}
+{% block title %}Home{% endblock %}
+
+{% load djmoney %}
+
+{% block content %}
+
+<h2 class="mt-5"><b>PRODUK TERSEDIA</b></h2>
+<div class="row mt-3 justify-content-center">
+    {% for value in data %}
+    <div class="col">
+        <div class="card-deck text-center" style="width: 18rem;">
+            <a {% if value.is_sell %} {% else %}href="/me/pesanan/{{value.id}}"{% endif %} class="text-decoration-none text-reset">
+                <img src="{{MEDIA_ROOT}}{{value.Vin.VehicleName.Images.url}}" style="height: 190px;" class="card-img-top" alt="{{vehicle.VehicleName}}">
+                <div class="card-body">
+                    {% if value.is_sell %}
+                        <p class="card-text">SOLD</p>
+                    {% endif %}
+                    <h4 class="card-title text-uppercase"><b>{{value.Vin.VehicleName}}</b></h4>
+                    <p class="card-text">Dealer: {{value.Owner}}</p>
+                    <p class="card-text">Price: {{value.Vin.VehicleName.Price}}</p>
+                    <div style="width: 15px; height: 15px; background-color: {{value.Colors}}; border: 1px solid black; border-radius: 25px;"></div>
+                </div>
+            </a>
+        </div>        
+    </div>
+    {% endfor %}    
+</div>
+{% endblock content %}

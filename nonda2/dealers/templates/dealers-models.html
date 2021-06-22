@@ -1,0 +1,31 @@
+{% extends 'dealers-index.html' %}
+{% load djmoney %}
+
+{% block title %}{% endblock title %}
+
+{% block dashboard %}
+<div class="mt-4">
+{% for key, value in vehicles.items %}
+    <div class="d-flex justify-content-center">
+    <h4 class="text-center text-uppercase" style="border-bottom: 1px solid black; border-width: 4px;"><b>{{key}}</b></h4>
+    </div>
+    <div class="container d-flex justify-content-center">
+    <div class="row mt-3">
+    {% for unit in value %}
+    <div class="col">
+        <div class="card-deck text-center" style="width: 18rem;">
+            <a href="/dealers/me/buy/{{unit.id}}#{{unit.VehicleName}}" class="text-decoration-none text-reset">
+                <img src="{{MEDIA_ROOT}}{{unit.Images.url}}" style="height: 190px;" class="card-img-top rounded mx-auto d-block" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title text-uppercase"><b>{{unit.VehicleName}}</b></h4>
+                    <p class="card-text">{% money_localize unit.Price %}.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock dashboard %}

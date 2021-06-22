@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer Register{%endblock%}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.username.errors }}
+            <label for="{{form.username.id_for_label}}" class="form-label">Username</label><br>
+            {{ form.username}}
+            <div id="userHelp" class="form-text">Please input your username</div>
+        </div>
+        <div class="mb-3">
+            {{ form.password1.errors }}
+            <label for="{{form.password1.id_for_label}}" class="form-label">Password</label><br>
+            {{ form.password1 }}
+            <div id="passwordHelp" class="form-text">Password must be al least 8 character.</div>
+        </div>
+        <div class="mb-3">
+            {{ form.password2.errors }}
+            <label for="{{form.password2.id_for_label}}" class="form-label">Re-Type Password.</label><br>
+            {{ form.password2 }}
+            <div id="passwordHelp" class="form-text">Password must be the same.</div>
+        </div>
+        <div class="mb-3">
+            {{ form.roles.errors }}
+            <label for="{{form.roles.id_for_label}}" class="form-label">Your Roles.</label><br>
+            {{ form.roles }}
+        </div>
+        <p>Already have an account? <a href="/login?next={{ request.path }}" class="list-decoration-none">Login</a></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

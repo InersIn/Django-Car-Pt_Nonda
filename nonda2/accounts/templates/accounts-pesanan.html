@@ -1,0 +1,42 @@
+{% extends 'accounts-index.html' %}
+
+{% load djmoney %}
+
+{% block title %}HOME | PESANAN {% endblock title %}
+
+{% block content %}
+<div class="mt-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+    <table class="table table-striped table-hover">
+        <tr class="table-light">
+            <th class="table-light">VIN</th>
+            <th class="table-light">VEHICLE NAME</th>
+            <th class="table-light">MODELS</th>
+            <th class="table-light">COLORS</th>
+            <th class="table-light">PRICE</th>
+        </tr>
+        <tr class="table-ligt">
+            <td class="table-light">
+                <input name="Vin" class="form-control" id="disabledInput" type="text" placeholder="{{data.units.Vin}}" disabled value="{{data.units.Vin}}">
+            </td>
+            <td class="table-light">
+                <input class="form-control" id="disabledInput" type="text" placeholder="{{data.info.VehicleName}}" disabled value="{{data.units.VehicleName}}">
+            </td>
+            <td class="table-light">
+                <input class="form-control" id="disabledInput" type="text" placeholder="{{data.info.VehicleName.ModelsName}}" disabled value="{{data.info.ModelsName}}">
+            </td>
+            <td class="table-light">
+                <select name="Colors" class="form-select" aria-label="Default select example">
+                    <option value="{{data.units.Colors}}">{{data.units.Colors}}</option>
+                </select>
+            </td>
+            <td class="table-light">
+                <input name="TotalPrice" class="form-control" id="disabledInput" type="text" placeholder="{{data.info.VehicleName.Price}}" disabled value="{{data.info.Price}}">
+            </td>
+        </tr>
+    </table>
+            <button type="submit" class="btn btn-primary">Buy</button>
+    </form>
+</div>
+{% endblock content %}
