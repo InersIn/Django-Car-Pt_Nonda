@@ -57,6 +57,12 @@ Restore file Database pada folder ```sql_backup``` dan masukan password sesuai s
 mysql -u nonda -p PtNonda < database.sql
 ```
 
+Untuk Automatisasi Input Data pada sisi manufactures saya sudah buat agar dapat memasukan data secara random tanpa perlu manual memasukan data, dengan membuka link berikut, dan memasukan jumlah data yang ingin di masukan.
+```url
+127.0.0.1:8000/dealers/input/$int
+```
+$int = Jumlah data
+
 # Running
 ```bash
 python3 ./manage.py runserver
