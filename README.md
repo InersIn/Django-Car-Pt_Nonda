@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 Rename beberapa file (IMPORTANT)
 ```bash
-mv .env/lib/.env/lib/python3.9/site-packages/fontawesome-free .env/lib/.env/lib/python3.9/site-packages/fontawesome_free
+mv .env/lib/python3.9/site-packages/fontawesome-free .env/lib/python3.9/site-packages/fontawesome_free
 ```
 
 # Database
